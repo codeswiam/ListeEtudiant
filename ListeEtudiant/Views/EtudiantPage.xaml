@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListeEtudiant.Views.EtudiantPage"
+             Title="{Binding Nom}"
+             xmlns:models="clr-namespace:ListeEtudiant.Models"
+             x:DataType="models:Etudiant">
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="10"
+                             VerticalOptions="StartAndExpand">
+            <Label Text="Nom" />
+            <Entry Text="{Binding Nom}" />
+            <Label Text="CNE" />
+            <Entry Text="{Binding CNE}" />
+            <Label Text="Niveau" />
+            <Entry Text="{Binding Niveau}" />
+            <Label Text="Ville" />
+            <Entry Text="{Binding Ville}" />
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="20">
+                <Button Text="Sauvegarder"
+                        Grid.Column="0"
+                        Clicked="OnSaveClicked" />
+                <Button Text="Supprimer"
+                        Grid.Column="1"
+                        Clicked="OnDeleteClicked" />
+                <Button Text="Annuler"
+                        Grid.Column="2"
+                        Clicked="OnCancelClicked" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

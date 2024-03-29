@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ListeEtudiant.Models"
+             x:Class="ListeEtudiant.Views.EtudiantListPage"
+             Title="Liste Etudiants">
+    <Grid RowDefinitions="*,Auto">
+        <CollectionView 
+            VerticalOptions="Fill"
+            ItemsSource="{Binding Etudiants}"
+            SelectionMode="Single"
+            SelectionChanged="SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Etudiant">
+                    <Grid ColumnDefinitions="*, *, *, *" Padding="20">
+                        <Label Text="{Binding CNE}"
+                               VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding Nom}"
+                               Grid.Column="1"
+                               VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding Niveau}"
+                               Grid.Column="2"
+                               VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding Ville}"
+                               Grid.Column="3"
+                               VerticalTextAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Grid.Row="1" Text="Ajouter Etudiant" Clicked="OnEtudiantAdded"
+                Margin="20"/>
+    </Grid>
+</ContentPage>
